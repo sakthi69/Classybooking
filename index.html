@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>booking system</title>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+    <style> @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap'); </style>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script> -->
+
+</head>
+<body>
+    <h1 class="intro">Classy Booking System</h1>
+    <form name="myForm" >
+        <!-- onsubmit="return false" -->
+        <!-- <form name="myForm" onsubmit="return validateForm()" method="post"> -->
+    <table class="tabl">
+        <tr id="input-gp">
+            <td><label>Full Name</label></td>
+            <td><input type="text" size="42" id="name" oninput="validatename()" /></td>
+            <td><span id="valname"></span></td>
+        </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td><input type="email" placeholder="username@gmail.com" size="42" id="mail" oninput="validateemail()" /></td>
+            <td><span id="valmail"></span></td>
+        </tr>
+        <tr>
+            <td><label>Phone number</label></td>
+            <td><input type="text" size="42" placeholder="" id="phone" oninput="validatephone()" /></td>
+            <td><span id="valphone"></span></td>
+        </tr>
+        
+        <tr>
+            <td><label>Departure Date/Time</label></td>
+            <td><input id="da" type="date"  onclick="dat()" onchange="dat()" />
+                <select name="hour" id="hour" onclick="dat()" onchange="dat()" >
+                    <option value="none" selected disabled hidden>Hrs</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+        
+                </select>
+        
+                <select>
+                    <option value="none" selected disabled hidden>Min</option>
+                    <option>00</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>40</option>
+                    <option>50</option>
+                    
+                </select>
+        
+                <select >
+                    <option>AM</option>
+                    <option>PM</option>
+                </select></td>
+                <td><span id="departime-Error"></span></td>
+                
+        </tr>
+        <tr>
+            <td><label>Return Date/Time</label></td>
+            <td> <input id="daa" type="date" onclick="dat()" onchange="dat()"/>
+                <select name="hour" id="hour1" onclick="dat()" onchange="dat()" >
+                    <option value="none" selected disabled hidden>Hrs</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+        
+                </select>
+        
+                <select >
+                    <option value="none" selected disabled hidden>Min</option>
+                    <option>00</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>40</option>
+                    <option>50</option>
+                
+                </select>
+        
+                <select>
+                    <option>AM</option>
+                    <option>PM</option>
+                </select></td>
+                <!-- <span id="Arrivetime-Error"></span> -->
+                <!-- <td><span id="departime-Error">hi</span></td> -->
+                <!-- <td><span id="atime-Error">hi</span></td> -->
+        </tr>
+        <tr>
+            <td><label>Pickup adress</label></td>
+            <td><textarea id="ap" type="text" rows="2"cols="38" placeholder="Eg:Chennai,Tamilnadu,India" oninput="valaddp()"></textarea></td>
+            <td><span id="paddress-Error"></span></td>
+        </tr>
+        <tr>
+            <td> <label>Destination adress</label></td>
+            <td><textarea id="ad" type="text" rows="2"cols="38" placeholder="Eg:Chennai,Tamilnadu,India" oninput="valaddd()"></textarea></td>
+            <td><span id="valad"></span></td>
+        </tr>
+        <tr>
+            <td><label>Journey type</label></td>
+            <td><select id="jt" onclick="jtyp()">
+                <option value="none" selected disabled hidden></option>
+                <option>First Class</option>
+                <option>Economy Class</option>
+                <option>Bussiness Class</option>
+            </select></td>
+            <td><span id="journey-Error"></span></td>
+        </tr>
+        <tr>
+            <td><label>No of passengers</label></td>
+            <td><select id="passengers" onclick="validatepass()">
+                <option value="none" selected disabled hidden>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select></td>
+            <td><span id="valpassengers"></span></td>
+        </tr>
+        <tr>
+            <td><label>Additional Message</label></td>
+            <td><textarea id="txx" type="text" rows="2"cols="38" ></textarea></td>
+            
+        </tr>
+        <tr>
+            <td colspan="2" class="xx"><button class="button-64" id="sub" onclick="submission()"><span class="text">Submit</span></button></a></td>
+            
+
+        </tr>
+        <tr>
+            <td colspan="2" class="ii"><span id="sub-error"></span></td>
+        </tr>
+        
+        
+
+    </table>
+    
+</form>
+
+<script src="index.js"></script>  
+</body>
+</html>
